@@ -11,8 +11,11 @@ const start = document.getElementById("start-btn");
 const stop = document.getElementById("stop-btn");
 const pause = document.getElementById("pause-btn");
 
+const setCount =document.getElementById("set-count");
+
 let count = 1500;
 let intervalId = null;
+let countSet = 0;
 
 function updateDisplay(){
 let minuteCount = Math.floor(count / 60);//分に変換
@@ -37,6 +40,9 @@ function countDown() {
     } else {
         clearInterval(intervalId);//0になったら終わり
         intervalId = null;
+
+        countSet++;
+        setCount.textContent = countSet;
 
         // この0になっらら終わりを１増やすとしてカウントしたい
     }
